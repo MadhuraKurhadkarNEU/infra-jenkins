@@ -1,3 +1,16 @@
 Add remote repository:
 git remote -v
 git remote add upstream git@github.com:SREArchitect/iac-terraform.git
+
+---
+
+# To read the variables from .env into pkr.hcl file
+export $(grep -v '^#' .env | xargs)
+
+---
+# to avoid pushing .gitignore file into repo
+find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+
+---
+To create a default VPC using the console
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
