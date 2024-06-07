@@ -3,10 +3,10 @@ provider "aws" {
   region  = var.region
 }
 
-data "aws_eip" "jenkins_ip" {
+data "aws_eip" "Jenkins" {
   filter {
-    name   = "tag:Name"
-    values = ["jenkins_ip"]
+    name   = "tag:Jenkins"
+    values = ["ElasticIP"]
   }
 }
 # Fetch the latest Jenkins AMI
@@ -104,7 +104,7 @@ resource "aws_instance" "jenkins" {
 
 resource "aws_eip_association" "jenkins_eip_assoc" {
   instance_id   = aws_instance.jenkins.id
-  allocation_id = data.aws_eip.jenkins_ip.id
+  allocation_id = data.aws_eip.Jenkins.id
 }
 output "vpc_id" {
   value = aws_vpc.main.id
@@ -115,5 +115,5 @@ output "public_subnet_id" {
 }
 
 output "jenkins_public_ip" {
-  value = data.aws_eip.jenkins_ip.public_ip
+  value = data.aws_eip.Jenkins.public_ip
 }

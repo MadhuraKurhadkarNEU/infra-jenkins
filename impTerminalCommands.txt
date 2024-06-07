@@ -14,3 +14,11 @@ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 ---
 To create a default VPC using the console
 Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+---
+
+This command works well (to avoid : I have an error that prevents me from pushing my changes to my GitHub repo:
+remote: error: File .terraform/plugins/darwin_amd64/terraform-provider-aws_v2.1.0_x4 is 134.07 MB; 
+this exceeds GitHub's file size limit of 100.00 MB
+):
+git filter-branch -f --index-filter 'git rm --cached -r --ignore-unmatch .terraform/'
+
