@@ -46,9 +46,9 @@ EOL
 sudo systemctl restart caddy
 
 # Install Certbot
-sudo apt-get install -y certbot
+# sudo apt-get install -y certbot
 
 # Obtain SSL certificate from Let's Encrypt using Certbot for the initial setup
-sudo certbot certonly --webroot -w /var/www/html -d jenkins.talentofpainting.info --non-interactive --agree-tos -m madhura.kurhadkar@gmail.com
+# sudo certbot certonly --webroot -w /var/www/html -d jenkins.talentofpainting.info --non-interactive --agree-tos -m madhura.kurhadkar@gmail.com
 
 # Caddy will automatically use the obtained Let's Encrypt certificates
