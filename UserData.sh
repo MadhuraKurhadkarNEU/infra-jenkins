@@ -52,3 +52,6 @@ sudo systemctl restart caddy
 # sudo certbot certonly --webroot -w /var/www/html -d jenkins.talentofpainting.info --non-interactive --agree-tos -m madhura.kurhadkar@gmail.com
 
 # Caddy will automatically use the obtained Let's Encrypt certificates
+
+sudo apt install certbot
+sudo certbot certonly --standalone -d jenkins.talentofpainting.info
